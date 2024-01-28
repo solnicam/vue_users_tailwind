@@ -170,10 +170,6 @@ const closeAddUserModal = (): void => {
   showAddUserModal.value = false
 }
 </script>
-
-<style scoped>
-/* Your styles */
-</style>
 <style scoped>
 .btn-error i {
   color: white;

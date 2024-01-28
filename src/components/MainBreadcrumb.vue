@@ -27,7 +27,3 @@ const props = defineProps({
   },
 })
 </script>
-
-<style scoped>
-/* Add custom styles if needed */
-</style>
