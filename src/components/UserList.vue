@@ -1,37 +1,40 @@
 <template>
-  <div class="container mx-auto p-4">
+  <div class="p-4">
     <button class="btn btn-primary mb-4" @click="showAddUserModal = true">
       Add User
     </button>
-
-    <table class="table w-full">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="user in users" :key="user.id">
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>
-            <button class="btn btn-sm btn-primary mx-1" @click="editUser(user)">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-sm btn-error" @click="deleteUser(user.id)">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto">
+      <table class="table min-w-full">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in users" :key="user.id">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <button
+                class="btn btn-sm btn-primary mx-1"
+                @click="editUser(user)"
+              >
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-error" @click="deleteUser(user.id)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="container mx-auto p-4">
     <div v-if="showAddUserModal" class="modal modal-open">
       <div class="modal-box">
-        <!-- Form content -->
         <form @submit.prevent="addUser">
           <div class="form-control">
             <label class="label">Name</label>
@@ -171,6 +174,21 @@ const closeAddUserModal = (): void => {
 }
 </script>
 <style scoped>
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  min-width: 600px;
+}
+
 .btn-error i {
   color: white;
 }

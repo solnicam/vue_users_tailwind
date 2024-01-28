@@ -1,5 +1,8 @@
 <template>
-  <aside class="w-48 md:w-64 bg-gray-100 p-4 dark:bg-gray-800">
+  <aside
+    v-show="isVisible"
+    class="w-30 md:w-64 bg-gray-100 p-4 dark:bg-gray-800"
+  >
     <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
       <ul class="space-y-2">
         <li>
@@ -24,3 +27,11 @@
     </div>
   </aside>
 </template>
+
+<script setup>
+import { defineProps } from "vue"
+// eslint-disable-next-line
+const props = defineProps({
+  isVisible: Boolean,
+})
+</script>
